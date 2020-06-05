@@ -1,0 +1,36 @@
+
+
+
+
+<div style="height: 450px; width: 35%; border: solid 1px rgb(196, 206, 212); border-radius: 10px; text-align: left" class="container">
+<br>
+    <h4 style="text-align: center;">SignIn</h4>
+     <form class="container"  #ToDo="ngForm">
+        <div class="form-group"><br>
+            <label for="email"><h5>Email</h5></label><br>
+            <input type="email" class="form-control" 
+            id="email" placeholder="Enter email" 
+            ngModel name="email"
+            required 
+            email
+            #email="ngModel">
+            <small class="text-danger"
+            *ngIf="email.invalid && email.touched">please enter valid Email! </small>
+        </div><br>
+         <div  class="form-group">
+             <label for="password"><h5>Password</h5></label>
+             <input type="password"class="form-control" id="password" placeholder="Enter password" name="password"
+             ngModel
+             name="password"
+             required 
+             #password="ngModel">
+             <small class="help-block"
+             *ngIf="password.invalid && password.touched">please enter password! </small>
+           <br>
+         </div>
+         <div  class=" container" style="text-align: center;">
+             <button type="submit" class="btn btn-primary btn-lg" (click)="onLogin(ToDo.value)" 
+             [disabled]="!ToDo.valid" >&nbsp; login &nbsp; </button>&nbsp;
+             &nbsp;
+ 
+ </div>

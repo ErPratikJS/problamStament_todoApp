@@ -1,0 +1,31 @@
+<p>admin works!</p>
+<h1>Admin!!!!!!!!!!!!!!!!!!!!!!!!</h1>
+
+
+
+<table  class="table table-active table-striped table-hover" >
+    <thead class="thead-dark" >
+        <tr>
+            <th style="border-radius: 9px; " colspan="3">Basic Info</th>
+              </tr>    
+    </thead>  
+    <thead >
+        <tr>
+            <th style="border-radius: 9px;">Email</th>
+            <th style="border-radius: 9px;">Name</th>
+            <th style="border-radius: 9px;">Access</th>
+        </tr>    
+    </thead>
+    <ng-container *ngFor="let user of user;let i=index">
+        <tbody>
+            <tr>
+                <td>{{user.email}} </td>
+                <td>{{user.firstName}} {{user.lastName}}</td>
+                <td *ngIf="user.access; else no"><button (click)="access(i)" class="btn btn-success">Activate</button></td>
+                
+                <ng-template #no> <td><button (click)="access(i)" class="btn btn-danger">Dectivate</button></td></ng-template>
+            </tr>
+
+        </tbody>
+    </ng-container>
+</table>

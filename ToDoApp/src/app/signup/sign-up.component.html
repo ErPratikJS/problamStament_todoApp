@@ -1,0 +1,101 @@
+
+
+<div class="form-group">
+    <div class="container" style="height: 100%; width: 470px; border: solid 1px grey; text-align: left;">
+        <h1 style="text-align: center;"><b>SignUp</b> </h1>
+        
+<div>
+<form (ngSubmit)="onSignUp(signup.value)" #signup="ngForm" >
+
+    <div class="form-group">
+        <label for="email">Email &nbsp;:&nbsp;</label>
+        <input 
+        ngModel
+        required email
+        type="email" 
+        class="form-control" 
+        name="email" id="email" #email="ngModel">
+        <small class="text-danger"
+        *ngIf="email.invalid && email.touched">please enter valid Email! </small>
+    </div>
+      
+    <div class="form-group">
+      <label for="firstName">First Name&nbsp;:&nbsp;</label>
+      <input 
+      ngModel
+      required
+      type="text" 
+      class="form-control" name="firstName" id="firstName"  #firstName="ngModel">
+      <small class="text-danger"
+      *ngIf="firstName.invalid && firstName.touched">please enter name </small>      
+      
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Last Name &nbsp;:&nbsp;</label>
+      <input 
+      ngModel
+      required
+      type="text" class="form-control" name="lastName" id="lastName" #lastName="ngModel">
+      <small class="text-danger"
+      *ngIf="firstName.invalid && firstName.touched">please enter name </small>      
+      
+    </div>
+    <div class="form-control">
+        <label>GENDER :&nbsp; </label>
+        <label for="female" class="radio-inline">&nbsp;<input type="radio" 
+            name="gender"
+            ngModel
+            value="female"
+            required> &nbsp; 
+            female&nbsp; </label>&nbsp; 
+            <label for="male" class="radio-inline"><input type="radio" 
+                name="gender"
+                ngModel
+                value="male"
+                required> &nbsp; 
+                &nbsp;  male</label>
+    </div>
+
+    <div class="form-group">
+        <label for="birthdate">Date of Birth &nbsp;:&nbsp;</label>
+        <input 
+        max="{{date}}"
+        type="date"  class="form-control"  ngModel name="birthdate" id="birthdate"  #birthdate="ngModel" >
+      </div>
+  
+
+    <div class="form-group">
+      <label for="password">Password &nbsp;:&nbsp;</label>
+      <input
+      ngModel
+      required
+      password
+      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+      type="password" class="form-control"  name="password" id="password"  #password="ngModel">
+    
+       
+  <span class="text-danger" *ngIf="password.touched && password.errors?.invalidPassword">    
+      Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase    
+      letter and 1 number    
+  </span>    
+  <span class="text-danger"    
+  *ngIf="(password.touched || signup.submitted) && password.errors?.required">    
+  Password is required    
+</span>   
+    </div>
+    <div class="form-group">
+        <label for="subscribeNews">Terms and Conditions&nbsp;</label>&nbsp;          
+        <input
+        required
+        type="checkbox"  id="access" ngModel  name="access"  #access="ngModel">
+      </div>
+    
+    <div style="text-align: center;">
+     <button  type="submit" [disabled]="!signup.valid" class="btn btn-primary btn-lg">Sign Up</button>
+    </div><br>
+</form>
+</div>
+<br>
+</div>
+</div>
